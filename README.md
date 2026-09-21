@@ -11,8 +11,8 @@ i finally found a way to run deprecated pixel 9 umts_router commands on pixel 10
 It may work for other pixel devices but i only tested it on pixel 10 pro (blazer), pixel 10 series has literally the same chip as the pixel 9 series, but because google decided to remove some functionality with A16, some commands do not work on stock modem.img.  
 
 ## requirements
-- rooted device with some way to run shell commands (termux or adb shell).  
-- oldest modem.img from pixel 9 devices. you can get it from [here]() or extract it from Google's official OTA archives.
+- rooted device with some way to run shell commands (termux or adb shell).
+- oldest modem.img from pixel 9 devices. you can get it from [here] or extract it from Google's official OTA archives.
 - [this](https://github.com/rektstarsceosu/pixel10-imei-repair/blob/main/bin/cp_crash) modem restart binary (or any other way to restart the modem, explained below)  
 
 
@@ -68,7 +68,7 @@ losetup -f
 # on pixel10 pro it starts from loop55, NUMBER MAY BE DIFFERENT, ADJUST ACCORDINGLY!!!
 losetup /dev/block/loop55 /sdcard/modem9.img
 ```
-mount the old image and replace the modem.img inside the modem.img (i don't know why there is another modem.img inside modem.img but this modem.img is where commands are executed from.)  
+mount the old image and replace the modem.img inside modem9.img (i don't know why there is another modem.img inside modem9.img but this modem.img is where commands are executed from.)  
 ```
 # adjust loop device accordingly
 mount -t ext4 -o rw,context=u:object_r:modem_img_file:s0 /dev/block/loop55 /data/local/tmp/mountp
@@ -78,7 +78,7 @@ mount --bind /data/local/tmp/mountp/images/default/modem.bin /mnt/vendor/modem_i
 ### 5. crash the modem device so it reads from our new modem.img
 you can use the program i included here, or you can build it from source with any arm64 compiler  
 or even better you can write a better wrapper  
-basically you need to send IOCTL_TRIGGER_CP_CRASH to modem  
+basically you need to send IOCTL_TRIGGER_CP_CRASH to the modem  
 ```c
 // this is the core idea
 int fd = open("/dev/umts_ipc0", O_RDWR);
@@ -89,7 +89,7 @@ using the binary i provide
 # put it to /data/local/tmp/cp_crash
 /data/local/tmp/cp_crash # execute it
 ```
-modem device will crash and restart  
+the modem will crash and restart  
 
 
 ### 6. continue from any other pixel9 imei repair guide
@@ -115,7 +115,7 @@ enter fastboot again and exit the factory mode
 fastboot oem rm_config bootmode
 fastboot reboot
 ```
-check your imei using dialer,  
+check your imei using the dialer,  
 dial: *#06#  
 
 ### Sources:
