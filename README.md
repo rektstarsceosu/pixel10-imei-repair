@@ -11,8 +11,9 @@ i finally found a way to run deprecated pixel 9 umts_router commands on pixel 10
 It may work for other pixel devices but i only tested it on pixel 10 pro (blazer), pixel 10 series has literally the same chip as the pixel 9 series, but because google decided to remove some functionality with A16, some commands do not work on stock modem.img.  
 
 ## requirements
+- [platform tools](https://developer.android.com/tools/releases/platform-tools#downloads)
 - rooted device with some way to run shell commands (termux or adb shell).
-- oldest modem.img from pixel 9 devices. you can get it from [here] or extract it from Google's official OTA archives.
+- oldest modem.img from pixel 9 devices. you can get it from [here](https://drive.google.com/file/d/1rlVkMrK4aHSjma92Wp58XOjgDCiMoqj1/view?usp=sharing) or extract it from Google's official OTA archives.
 - [this](https://github.com/rektstarsceosu/pixel10-imei-repair/blob/main/bin/cp_crash) modem restart binary (or any other way to restart the modem, explained below)  
 
 
@@ -39,7 +40,6 @@ LC_ALL=C sed -i "s/imei2xxxxxxxxxx/imei2yyyyyyyyyy/g" devinfo.img
 send the devinfo_modified.img to the device
 ```
 dd if=/sdcard/devinfo_modified.img of=/dev/block/by-name/devinfo  
-
 ```
 
 ### 3. reboot the device and also enter factory mode
@@ -50,7 +50,6 @@ adb reboot bootloader
 # set it to factory mode
 fastboot oem set_config bootmode factory
 fastboot reboot
-
 ```
 you will see a red 'Factory' warning when the device powers on.  
 
@@ -123,9 +122,7 @@ dial: *#06#
 - claude.ai for writing the wrapper for restarting the modem for me
 - extract payload.bin: https://github.com/ssut/payload-dumper-go
 - pixel 9 imei restore: https://xdaforums.com/t/restore-imei-numbers-for-pixel-9-pro-and-pixel-9-pro-xl.4714671/
-- my hatred against corpos taking away our right to modify/repair our devices and anyone who sells this knowledge for money
-
-
+- my hatred against corpos taking away our right to modify/repair our devices and at anyone who gatekeeps that knowledge to monetize it.
 ```
 Thanks for reading :<
 
