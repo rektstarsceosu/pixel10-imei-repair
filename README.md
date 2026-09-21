@@ -56,7 +56,7 @@ you will see a red 'Factory' warning when the device powers on.
 ### 4. hotfix the modem partition to use deprecated commands
 
 put your old modem image from pixel 9 to `/sdcard/modem9.img`
-i used 14.0.0 [(AD1A.240530.030, Aug 2024) for caiman](https://dl.google.com/dl/android/aosp/caiman-ota-ad1a.240530.030-0fc923fd.zip)  
+i used [(AD1A.240530.030, Aug 2024) for caiman](https://dl.google.com/dl/android/aosp/caiman-ota-ad1a.240530.030-0fc923fd.zip)  
 you can extract the modem with [payload-dumper-go](https://github.com/ssut/payload-dumper-go)  
 
 create a loopback device for modem.img  
