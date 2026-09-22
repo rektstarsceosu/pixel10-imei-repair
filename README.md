@@ -1,5 +1,5 @@
 # !!!!DISCLAIMER!!!!  
-this is just for educational purposes. IMEI modification may be ILLEGAL depending on where you live. DO NOT use IMEIs you don't own.  
+this is just for educational purposes. IMEI modification may be ILLEGAL depending on where you live. DO NOT use IMEIs you don't own and never write an IMEI that doesn't belong to that device.  
 
 Tested only on `PIXEL 10 PRO` and comes with ABSOLUTELY NO WARRANTY. I am not responsible for you bricking your device and starting any termonuclear wars.
 YOU HAVE BEEN WARNED  
@@ -24,7 +24,7 @@ adb shell # or your preferred way to get a shell
 su
 dd if=/dev/block/by-name/devinfo of=/sdcard/devinfo_original.img
 ```
-you need to replace the IMEI number strings in this image. They are located at offset  
+you need to write the corrected IMEI number strings in this image. They are located at offset  
 413:imei1xxxxxxxxxx  
 447:imei2xxxxxxxxxx  
 
