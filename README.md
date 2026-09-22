@@ -24,7 +24,7 @@ adb shell # or your preferred way to get a shell
 su
 dd if=/dev/block/by-name/devinfo of=/sdcard/devinfo_original.img
 ```
-you need to write the corrected IMEI number strings in this image. They are located at offset  
+you need to write the corrected IMEI number strings to this image. They are located at byte offsets  
 413:imei1xxxxxxxxxx  
 447:imei2xxxxxxxxxx  
 
